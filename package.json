@@ -2,7 +2,7 @@
   "name": "tech-share",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "build": "slidev build --base /container/",
     "dev": "slidev --open",
     "export": "slidev export"
   },
