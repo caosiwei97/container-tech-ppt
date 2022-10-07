@@ -13,6 +13,6 @@ git add -A
 git commit -m 'deploy'
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:caosiwei97/ppt.github.io.git main:gh-pages
+git push -f git@github.com:caosiwei97/container-tech-ppt.git main:gh-pages
 
 cd -
