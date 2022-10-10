@@ -50,7 +50,7 @@ K8S 系列分享第一篇
 
 ## Stage 1
 
-<img src="/img/云计算底层的核心技术依赖.png" class="auto-img" >
+<img src="/img/timeline01.png" class="auto-img" >
 
 <style>
 .auto-img{
@@ -78,7 +78,7 @@ K8S 系列分享第一篇
 
 ## Stage 2
 
-<img src="/img/网格计算概念.png" class="auto-img" >
+<img src="/img/timeline02.png" class="auto-img" >
 
 <style>
 .auto-img{
@@ -117,7 +117,7 @@ K8S 系列分享第一篇
 
 而且，这种资源是可以按量收费的，太多了可以减少资源，太少了可以增加资源，这种就叫 “弹性伸缩” 。
 
-<img src="/img/虚拟机.png" class="auto-img" >
+<img src="/img/vm.png" class="auto-img" >
 
 <style>
 .auto-img{
@@ -180,7 +180,7 @@ Cloud Foundry 这类 PaaS 项目虽然给应用提供了 “托管” 的能力�
 
 ## Docker 架构
 
-<img src="/img/Docker 架构.png" class="auto-img" >
+<img src="/img/docker_architecture.png" class="auto-img" >
 
 <style>
 .auto-img{
