@@ -228,9 +228,48 @@ Cgroups 则是对每个容器的计算机资源进行控制。
 
 ---
 
-# 了解 K8S 对前端有什么好处
+## K8S 是如何站稳脚跟的？
 
-前面的知识听得很模糊，作为前端
+Docker 随着 Swarm、Compose 等技术的发布，Docker 已成为事实上商业化产品，而在开源上甚至保持着绝对的权威和发言权，这下就把很多 “玩家” 惹毛了！
+
+Google 在 Docker 开源没多久后也开源了内部使用多年的 Linux 容器：Imctfy。但是 Docker 还是太火了，于是 Google 想要谋求合作，共同搞一个容器运行时（Container Runtime）作为 Docker 项目的依赖。
+
+但是，Docker 拒绝合作！（年轻气盛中）
+
+随后，Docker 发布了一个容器运行时库 Libcontainer（后改名为 RunC），这个库发布是比较仓促的，主要是为了战略性（我不用合作也能搞出来），结果被社区打脸（shit code）。
+
+这下彻底把大家搞毛了，容器领域决定对 Docker 下手了。
+
+---
+
+## OCI 规范的诞生
+
+Docker 惹怒大家后，它们迫不得已和 Google、CoreOS、RedHat 等公司合作搞了一套容器和镜像的标准和规范，叫 OCI （Open Container Initiative），这意味着想搞容器平台底层的依赖可以不用是 Docker 了，可以是任何遵循 OCI 规范的容器。
+
+OCI 成立后，Docker 也没心思花时间搞技术推进，让 OCI 组织效率持续低下，但就这么完事了么 ？
+
+---
+
+## CNCF 基金会成立
+
+Google、CoreOS、RedHat 这些 "玩家" 心里肯定是不舒服的，想着在 Pass 平台发力，它们可是在这个领域可比 Docker 有话语权了，于是共同成立了一个 CNCF（Cloud Native Computing Foundation） 基金会。
+
+> CNCF 基金会主要以 Kubernetes 项目为基础，建立一个由开源基础设施领域厂商主导的、按照独立基金会方式运营的平台级社区，来对抗以 Docker 公司为核心的容器商业生态。
+
+而 Docker 在平台层只有 Swarm ，这下被 “吊打” 了，当然除了 Swarm ，K8S 还有一个竞争对手是 Mesos（擅长超大规模集群调度管理），但后者在编排领域创新能力不够，所以基本上不是 Google 的对手。
+
+RedHat 也没闲着，当时 K8S 团队规模很小，工程能力有限，而这恰巧是 RedHat 的强处，RedHat 是世界上为数不多的、能真正理解开源社区运作和项目研发真谛的合作伙伴。
+
+---
+
+## 新的时代
+
+这下 Docker 玩不下去了，随后有两个事情：
+
+- 2017 年 10 月，Docker 公司出人意料地宣布，将在自己的主打产品 Docker 企业版中内置 Kubernetes 项目
+- 2018 年 3 月 28 日，Docker 的 CTO 宣布辞职。
+
+K8S 开始称王！
 
 ---
 
@@ -241,5 +280,3 @@ Cgroups 则是对每个容器的计算机资源进行控制。
 - [RedHat：了解虚拟化](https://www.redhat.com/zh/topics/virtualization)
 - [维基百科：虚拟化](https://zh.m.wikipedia.org/zh-cn/%E8%99%9B%E6%93%AC%E5%8C%96)
 - [极客时间：深入 Kubernetes](https://time.geekbang.org/column/intro/100015201?tab=catalog)
-
----
