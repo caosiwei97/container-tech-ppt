@@ -66,11 +66,11 @@ K8S 系列分享第一篇
 
 ---
 
-第一阶段之后主要产生了三个核心依赖的技术：
+第一阶段算是计算机的发展，但也同时也为日后的云计算出现作了铺垫：
 
 - 用于管理物理计算资源的操作系统
 
-- 用于把资源分给多人同时使用的虚拟化技术
+- 用于把资源分给多人同时使用的 “虚拟化技术” 概念产生
 
 - 用于远程接入的互联网
 
@@ -98,8 +98,19 @@ K8S 系列分享第一篇
 
 - 计算机的算力的提升
 - 分布式计算带来的便利
-- 虚拟化技术继续发展
+- 虚拟化技术继续发展 （Hypervisor）
 
+<img src="https://assets-global.website-files.com/60494527fea68422687bfcf1/60620c3038c7591706fb8381_what-is-a-hypervisor-1024x695.png" class="auto-img" >
+
+<style>
+.auto-img{
+  position: absolute;
+  width: 40%;
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+</style>
 ---
 
 ## Stage 3
@@ -109,13 +120,26 @@ K8S 系列分享第一篇
 - 亚马逊 2006 年 3 月推出弹性云服务
 - 谷歌 2006 年 8 月提出“云计算” 概念
 
+<img src="https://www.nfx.com/_next/image?url=https%3A%2F%2Fcontent.nfx.com%2Fwp-content%2Fuploads%2F2021%2F07%2FOG-V3-COMPRESSED.jpg&w=640&q=75" class="auto-img" >
+
+<style>
+.auto-img{
+  position: absolute;
+  width: 40%;
+  right: 10%;
+}
+</style>
 ---
 
-这个时期也是 PC 、互联网的快速发展时期，随着人们上网的需求越来越多，传统的服务器难以承载大型业务，或者想对硬件进行扩容很麻烦，于是越来越多的企业把应用部署到了云服务器，用租用的形式来获取计算机资源。
+这个时期也是 PC 、互联网的快速发展时期，随着人们上网的需求越来越多，传统的服务器难以承载大型业务，或者想对硬件进行扩容很麻烦。
+
+于是越来越多的企业把应用部署到了云服务器，用租用的形式来获取计算机资源。
 
 云计算资源其实就是在物理资源的基础上，通过虚拟化平台实现计算机资源更好地管理（CPU、内存、硬盘、网络等资源），每个用户租用的资源都是相互隔离的。
 
-而且，这种资源是可以按量收费的，太多了可以减少资源，太少了可以增加资源，这种就叫 “弹性伸缩” 。
+---
+
+而且，这种资源是可以按量收费的，太多了可以减少资源，太少了可以增加资源，这种就是大家常听到的 “弹性伸缩” ，这些都要得益于前面提到的虚拟化技术的发展。
 
 <img src="/img/vm.png" class="auto-img" >
 
@@ -124,13 +148,13 @@ K8S 系列分享第一篇
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
+  width: 30%;
 }
 </style>
 
 ---
 
-## 虚拟化技术是什么？
+## So，虚拟化技术到底是什么？
 
 虚拟化技术是一种**将计算机物理资源进行抽象、转换为虚拟的计算机资源提供给程序使用的技术**。主要是有**硬件虚拟化**和**软件虚拟化**两大类别。
 
@@ -146,11 +170,28 @@ K8S 系列分享第一篇
 
 - 跨平台。虚拟化技术在操作系统层面通过适配不同硬件平台对外提供统一接口，来达到跨平台的功能。
 - 提高计算机资源的利用率。有了虚拟化，可以很好的提高资源利用率，把空闲的资源给其他程序，也不会出现资源竞争的情况。
-- 让云计算 PaaS 化平台蓬勃发展。
+- 让云计算行业蓬勃发展。
 
 ---
 
-云计算的和虚拟化技术的发展是虽然是相辅相成的，但虚拟化技术并不是云计算底层唯一的依赖，因为容器技术出现了。
+云计算的和虚拟化技术的发展是虽然是相辅相成的，但虚拟化技术并不是云计算底层唯一的依赖，因为容器技术出现了，这感觉就像单车变摩托！
+
+<img v-if="$slidev.nav.currentPage === 13" src="https://nimg.ws.126.net/?url=http%3A%2F%2Fdingyue.ws.126.net%2F2022%2F0613%2F9dfd2829j00rdf103000vd000dw00csp.jpg&thumbnail=660x2147483647&quality=80&type=jpg" class="auto-img" v-motion :initial="{ x: -1000 }"
+  :enter="{ x: 0 }">
+
+<style>
+
+.auto-img {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+}
+
+img {
+  flex: 1;
+}
+</style>
 
 ---
 
@@ -178,6 +219,23 @@ Cloud Foundry 这类 PaaS 项目虽然给应用提供了 “托管” 的能力�
 
 ---
 
+## 应用部署的发展过程
+
+<br>
+
+<img src="https://d33wubrfki0l68.cloudfront.net/26a177ede4d7b032362289c6fccd448fc4a91174/eb693/images/docs/container_evolution.svg" class="auto-img" >
+
+<style>
+.auto-img{
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  transform: translateX(-50%);
+  width: 80%;
+}
+</style>
+---
+
 ## Docker 架构
 
 <img src="/img/docker_architecture.png" class="auto-img" >
@@ -194,16 +252,55 @@ Cloud Foundry 这类 PaaS 项目虽然给应用提供了 “托管” 的能力�
 
 ---
 
-## 最核心的 Union FS 技术
+## 容器实现的原理
+
+从 Docker 架构图中我们可以看到，容器的实现，它是依赖 Linux 内核中的 Cgroups 、Namespace 、Union FS 等技术的。
 
 Namespace 的出现主要实现容器隔离，比如容器内某个进程 ID 是 1，而宿主机可能是 30828。
 
-Cgroups 则是对每个容器的计算机资源进行控制。
+<div class="img-container">
+  <img src="/img/namespace01.png" class="auto-img" >
+  <img src="/img/namespace02.png" class="auto-img" >
+</div>
 
-而 UniFS 则是提供了一个分层式的文件系统，它就是实现 Docker 镜像功能的一个核心技术，因为应用依赖的每个环境都可以通过这个 “层” 去写入，与应用打包捆绑在一起，有了它之后根本不需要操心本地环境与云端环境的同步问题了。
+<style>
+.img-container {
+  display: flex;
+}
+
+img {
+  width: 50%;
+}
+</style>
+---
+
+容器虽然实现了隔离，但是对于操作系统来说无非就是一个进程罢了，而进程就一定会存在资源竞争的情况，如果不加限制的话，可以把系统资源吃光光。
+
+Cgroups 就是解决这个问题的，它可以为每个容器的计算机资源进行控制。比如以下命令可以限制 cpu 资源：
+
+```bash
+$ docker run -it --cpu-period=100000 --cpu-quota=20000 ubuntu /bin/bash
+```
+<br>
+<br>
+<br>
+除此之外，UniFS 也是 Docker 的核心技术之一。
+---
+
+UniFS 则是提供了一个分层式的文件系统，它就是实现 Docker 镜像功能的一个核心技术，因为应用依赖的每个环境都可以通过这个 “层” 去写入，与应用打包捆绑在一起，有了它之后根本不需要操心本地环境与云端环境的同步问题了。
 
 你可能再也听不到：我电脑上是好的啊，怎么在这就不行了呢？
+<img src="https://pic2.zhimg.com/v2-c7142b9919676f3e557705b79d3f75bb_1440w.jpg?source=172ae18b" class="auto-img" >
 
+<style>
+.auto-img{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 500px;
+}
+</style>
 ---
 
 # 容器编排的 “百花齐放”
