@@ -100,7 +100,7 @@ K8S 系列分享第一篇
 - 分布式计算带来的便利
 - 虚拟化技术继续发展 （Hypervisor）
 
-<img src="https://assets-global.website-files.com/60494527fea68422687bfcf1/60620c3038c7591706fb8381_what-is-a-hypervisor-1024x695.png" class="auto-img" >
+<img src="https://assets-global.website-files.com/60494527fea68422687bfcf1/60620c3038c7591706fb8381_what-is-a-hypervisor-1024x695.png" class="auto-img" v-click>
 
 <style>
 .auto-img{
@@ -111,6 +111,7 @@ K8S 系列分享第一篇
   transform: translateY(-50%);
 }
 </style>
+
 ---
 
 ## Stage 3
@@ -129,6 +130,7 @@ K8S 系列分享第一篇
   right: 10%;
 }
 </style>
+
 ---
 
 这个时期也是 PC 、互联网的快速发展时期，随着人们上网的需求越来越多，传统的服务器难以承载大型业务，或者想对硬件进行扩容很麻烦。
@@ -234,6 +236,7 @@ Cloud Foundry 这类 PaaS 项目虽然给应用提供了 “托管” 的能力�
   width: 80%;
 }
 </style>
+
 ---
 
 ## Docker 架构
@@ -272,6 +275,7 @@ img {
   width: 50%;
 }
 </style>
+
 ---
 
 容器虽然实现了隔离，但是对于操作系统来说无非就是一个进程罢了，而进程就一定会存在资源竞争的情况，如果不加限制的话，可以把系统资源吃光光。
@@ -281,6 +285,7 @@ Cgroups 就是解决这个问题的，它可以为每个容器的计算机资源
 ```bash
 $ docker run -it --cpu-period=100000 --cpu-quota=20000 ubuntu /bin/bash
 ```
+
 <br>
 <br>
 <br>
@@ -301,6 +306,7 @@ UniFS 则是提供了一个分层式的文件系统，它就是实现 Docker 镜
   width: 500px;
 }
 </style>
+
 ---
 
 # 容器编排的 “百花齐放”
@@ -331,6 +337,8 @@ Docker 随着 Swarm、Compose 等技术的发布，Docker 已成为事实上商�
 
 Google 在 Docker 开源没多久后也开源了内部使用多年的 Linux 容器：Imctfy。但是 Docker 还是太火了，于是 Google 想要谋求合作，共同搞一个容器运行时（Container Runtime）作为 Docker 项目的依赖。
 
+---
+
 但是，Docker 拒绝合作！（年轻气盛中）
 
 随后，Docker 发布了一个容器运行时库 Libcontainer（后改名为 RunC），这个库发布是比较仓促的，主要是为了战略性（我不用合作也能搞出来），结果被社区打脸（shit code）。
@@ -353,6 +361,8 @@ Google、CoreOS、RedHat 这些 "玩家" 心里肯定是不舒服的，想着在
 
 > CNCF 基金会主要以 Kubernetes 项目为基础，建立一个由开源基础设施领域厂商主导的、按照独立基金会方式运营的平台级社区，来对抗以 Docker 公司为核心的容器商业生态。
 
+---
+
 而 Docker 在平台层只有 Swarm ，这下被 “吊打” 了，当然除了 Swarm ，K8S 还有一个竞争对手是 Mesos（擅长超大规模集群调度管理），但后者在编排领域创新能力不够，所以基本上不是 Google 的对手。
 
 RedHat 也没闲着，当时 K8S 团队规模很小，工程能力有限，而这恰巧是 RedHat 的强处，RedHat 是世界上为数不多的、能真正理解开源社区运作和项目研发真谛的合作伙伴。
@@ -367,6 +377,56 @@ RedHat 也没闲着，当时 K8S 团队规模很小，工程能力有限，而�
 - 2018 年 3 月 28 日，Docker 的 CTO 宣布辞职。
 
 K8S 开始称王！
+
+---
+
+# 了解 K8S 对前端有什么好处
+
+- 了解到 CI/CD 的运作模式，在有资源的情况下，可以接管前端项目的自动化部署（运维：你别来抢我活啊！）。
+
+<img src="http://assets.processon.com/chart_image/5ecb81b20791290fe083e69c.png" class="auto-img" v-click>
+
+<style>
+.auto-img{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 650px;
+}
+</style>
+
+---
+
+- 搭建 k8s 的门槛降低，可以利用 rancher 这类平台很快就可以搭建好环境。
+
+<img src="http://assets.processon.com/chart_image/635600aee0b34d08167536f2.png" class="auto-img" v-click>
+
+<style>
+.auto-img{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 500px;
+}
+</style>
+
+---
+
+- 当然，在云原生盛行的年代，不管是前端还是后端都有必要去了解的（技多不压身，可以和别人吹牛）。
+
+<img src="http://tva3.sinaimg.cn/large/c36bc670gy1fg5hwz3z9rj20b40b4aby.jpg" class="auto-img" v-click>
+
+<style>
+.auto-img{
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 300px;
+}
+</style>
 
 ---
 
